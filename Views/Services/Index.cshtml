@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BcDemocratize.Models.Service>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Les services</h1>
+
+<p>
+    Cliquez <a asp-action="Create">ici</a> pour ajouter un service.
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Service")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Détails</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

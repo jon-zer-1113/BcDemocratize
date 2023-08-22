@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BcDemocratize.Models.Member>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Les membres</h1>
+
+<p>
+    Cliquez <a asp-action="Create">ici</a> pour ajouter un membre.
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Prénom")
+            </th>
+            <th>
+                @Html.DisplayName("Nom")
+            </th>
+            <th>
+                @Html.DisplayName("Portable")
+            </th>
+            <th>
+                @Html.DisplayName("Fixe")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cellphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Détails</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
